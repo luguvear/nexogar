@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexogar - Comercio Electrónico Moderno</title>
+    <title>Codemx - Comercio Electrónico Moderno</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -101,7 +101,7 @@
                             </div>
                         </div>
                         <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80" alt="Oferta especial" class="w-full h-48 object-cover rounded-2xl mb-4">
-                        <h3 class="font-bold text-gray-900 text-lg">Lámpara Inteligente Nexogar Pro</h3>
+                        <h3 class="font-bold text-gray-900 text-lg">Lámpara Inteligente Codemx Pro</h3>
                         <p class="text-sm text-gray-500 mb-4">Regula la intensidad y temperatura del color desde tu smartphone.</p>
                         <div class="flex items-center justify-between">
                             <div>
@@ -279,7 +279,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h3 class="text-white font-bold text-lg mb-3">Nexogar</h3>
+                    <h3 class="text-white font-bold text-lg mb-3">Codemx</h3>
                     <p class="text-sm text-gray-400">Tu tienda de confianza con los mejores artículos para equipar y modernizar tu espacio.</p>
                 </div>
                 <div>
@@ -293,11 +293,11 @@
                 <div>
                     <h4 class="text-white font-semibold text-sm mb-3">Contacto</h4>
                     <p class="text-sm">Atención al cliente de Lunes a Sábado.</p>
-                    <p class="text-sm text-white font-medium mt-1">soporte@nexogar.com</p>
+                    <p class="text-sm text-white font-medium mt-1">soporte@Codemx.com</p>
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
-                &copy; 2025 Nexogar. Todos los derechos reservados.
+                &copy; 2025 Codemx. Todos los derechos reservados.
             </div>
         </div>
     </footer>
@@ -314,7 +314,7 @@
         // ==========================================
         const productos = [
             // ILUMINACIÓN (10 Productos)
-            { id: 1, nombre: "Lámpara Inteligente Nexogar Pro", categoria: "iluminacion", precio: 499, precioAnterior: 899, rating: 5, badge: "Oferta", imagen: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80", descripcion: "Lámpara LED regulable con control por app y compatibilidad con asistentes de voz." },
+            { id: 1, nombre: "Lámpara Inteligente Codemx Pro", categoria: "iluminacion", precio: 499, precioAnterior: 899, rating: 5, badge: "Oferta", imagen: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80", descripcion: "Lámpara LED regulable con control por app y compatibilidad con asistentes de voz." },
             { id: 2, nombre: "Tira LED RGB Inteligente 5m", categoria: "iluminacion", precio: 320, precioAnterior: 450, rating: 4.8, badge: "Popular", imagen: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80", descripcion: "Sincronizable con música y control remoto para crear la mejor atmósfera." },
             { id: 3, nombre: "Foco Inteligente WiFi E27 Multi-Color", categoria: "iluminacion", precio: 180, precioAnterior: 250, rating: 4.7, badge: "Nuevo", imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=600&q=80", descripcion: "Foco inteligente de bajo consumo programable con temporizador." },
             { id: 4, nombre: "Lámpara de Escritorio LED Táctil", categoria: "iluminacion", precio: 399, precioAnterior: 520, rating: 4.9, badge: "Más Vendido", imagen: "https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?auto=format&fit=crop&w=600&q=80", descripcion: "Brazo flexible, 3 modos de luz y puerto de carga USB incorporado." },
@@ -375,7 +375,7 @@
         ];
 
         // Estado Global del Carrito (recuperado de localStorage)
-        let cart = JSON.parse(localStorage.getItem('nexogar_cart')) || [];
+        let cart = JSON.parse(localStorage.getItem('Codemx_cart')) || [];
         let currentCategory = 'todos';
 
         // ==========================================
@@ -488,7 +488,7 @@
         }
 
         function saveAndUpdateCart() {
-            localStorage.setItem('nexogar_cart', JSON.stringify(cart));
+            localStorage.setItem('Codemx_cart', JSON.stringify(cart));
             renderCartUI();
         }
 
@@ -540,7 +540,7 @@
                 return;
             }
 
-            let mensaje = "¡Hola Nexogar! Quisiera realizar el siguiente pedido:\n\n";
+            let mensaje = "¡Hola Codemx! Quisiera realizar el siguiente pedido:\n\n";
             let total = 0;
 
             cart.forEach((item, index) => {
