@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraStore - Experiencia de Compra Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2"></div>
+
+    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-100 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                    <div class="bg-slate-900 text-white p-2 rounded-xl">
+                        <i data-lucide="gem" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">AuraStore</span>
+                </div>
+
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                    <a href="#hero" class="hover:text-slate-900 transition">Inicio</a>
+                    <a href="#catalogo" class="hover:text-slate-900 transition">Catálogo</a>
+                    <a href="#garantias" class="hover:text-slate-900 transition">Nosotros</a>
+                    <a href="#testimonios" class="hover:text-slate-900 transition">Opiniones</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <div class="relative hidden sm:block w-48 lg:w-64">
+                        <input type="text" id="search-input" placeholder="Buscar productos..." 
+                               class="w-full bg-slate-100 text-sm pl-9 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-slate-900/10 transition">
+                        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+                    </div>
+
+                    <button id="open-cart-btn" class="relative p-2 text-slate-700 hover:text-slate-900 transition rounded-full hover:bg-slate-100">
+                        <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                        <span id="cart-badge" class="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center scale-0 transition-transform">0</span>
+                    </button>
+                </div>
+            </div>
+            <div class="pb-3 sm:hidden">
+                <div class="relative w-full">
+                    <input type="text" id="search-input-mobile" placeholder="Buscar productos..." 
+                           class="w-full bg-slate-100 text-sm pl-9 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-slate-900/10 transition">
+                    <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="hero" class="relative bg-gradient-to-b from-slate-100/80 to-slate-50 py-16 md:py-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6 text-center md:text-left">
+                        <span class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold px-3 py-1 rounded-full">
+                            <i data-lucide="truck" class="w-3.5 h-3.5"></i> Envío gratis a todo el país
+                        </span>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                            Diseño minimalista,<br/><span class="text-slate-500">calidad excepcional.</span>
+                        </h1>
+                        <p class="text-slate-600 text-base sm:text-lg max-w-lg mx-auto md:mx-0">
+                            Descubre nuestra colección exclusiva de productos seleccionados para mejorar tu estilo de vida cotidiano.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                            <a href="#catalogo" class="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-3.5 rounded-full font-medium shadow-lg shadow-slate-900/10 hover:bg-slate-800 hover:shadow-slate-900/20 transition-all">
+                                Explorar Catálogo
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-100 max-w-md mx-auto">
+                            <div class="relative h-64 rounded-2xl overflow-hidden mb-4 bg-slate-100">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" alt="Oferta especial" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">Oferta del Día</span>
+                            </div>
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-slate-900">Auriculares Premium Wireless</h3>
+                                <div class="flex items-baseline gap-2">
+                                    <span class="text-2xl font-bold text-slate-900">$189.99</span>
+                                    <span class="text-sm text-slate-400 line-through">$249.99</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                    <p class="text-xs text-slate-500 mb-2 font-medium text-center">La oferta termina en:</p>
+                                    <div class="flex justify-center gap-4 text-center">
+                                        <div><span id="hours" class="font-bold text-slate-900 text-lg">08</span><span class="block text-[10px] text-slate-400 uppercase">Horas</span></div>
+                                        <span class="font-bold text-slate-300">:</span>
+                                        <div><span id="minutes" class="font-bold text-slate-900 text-lg">45</span><span class="block text-[10px] text-slate-400 uppercase">Min</span></div>
+                                        <span class="font-bold text-slate-300">:</span>
+                                        <div><span id="seconds" class="font-bold text-slate-900 text-lg">30</span><span class="block text-[10px] text-slate-400 uppercase">Seg</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="catalogo" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">Nuestros Productos</h2>
+                    <p class="text-slate-500 text-sm">Explora artículos seleccionados de alta calidad</p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <div id="category-filters" class="flex flex-wrap gap-1.5">
+                        <button class="cat-btn px-4 py-2 text-xs font-semibold rounded-full bg-slate-900 text-white transition" data-category="all">Todos</button>
+                        <button class="cat-btn px-4 py-2 text-xs font-semibold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-category="tech">Tecnología</button>
+                        <button class="cat-btn px-4 py-2 text-xs font-semibold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-category="lifestyle">Estilo de Vida</button>
+                        <button class="cat-btn px-4 py-2 text-xs font-semibold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-category="hogar">Hogar</button>
+                    </div>
+
+                    <select id="sort-select" class="bg-slate-100 text-xs font-medium border-0 rounded-full px-4 py-2 text-slate-600 focus:outline-none focus:ring-2 focus:ring-slate-900/10">
+                        <option value="default">Ordenar por: Relevancia</option>
+                        <option value="price-low">Precio: Menor a Mayor</option>
+                        <option value="price-high">Precio: Mayor a Menor</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                </div>
+        </section>
+
+        <section id="garantias" class="border-y border-slate-200/60 bg-white py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="flex flex-col items-center text-center p-4">
+                        <div class="bg-slate-50 p-3 rounded-2xl text-slate-900 mb-3"><i data-lucide="truck" class="w-6 h-6"></i></div>
+                        <h4 class="font-semibold text-sm text-slate-900">Envío Rápido</h4>
+                        <p class="text-xs text-slate-500 mt-1">Gratis en órdenes mayores a $50</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-4">
+                        <div class="bg-slate-50 p-3 rounded-2xl text-slate-900 mb-3"><i data-lucide="shield-check" class="w-6 h-6"></i></div>
+                        <h4 class="font-semibold text-sm text-slate-900">Garantía Segura</h4>
+                        <p class="text-xs text-slate-500 mt-1">30 días de cobertura total</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-4">
+                        <div class="bg-slate-50 p-3 rounded-2xl text-slate-900 mb-3"><i data-lucide="credit-card" class="w-6 h-6"></i></div>
+                        <h4 class="font-semibold text-sm text-slate-900">Pago Protegido</h4>
+                        <p class="text-xs text-slate-500 mt-1">Encriptación SSL de 256 bits</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-4">
+                        <div class="bg-slate-50 p-3 rounded-2xl text-slate-900 mb-3"><i data-lucide="headphones" class="w-6 h-6"></i></div>
+                        <h4 class="font-semibold text-sm text-slate-900">Soporte 24/7</h4>
+                        <p class="text-xs text-slate-500 mt-1">Atención personalizada continua</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios" class="py-16 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-center text-slate-900 mb-10">Lo que dicen nuestros clientes</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+                        <p class="text-slate-600 text-sm mb-4">"La calidad de los productos superó totalmente mis expectativas. El envío llegó al día siguiente."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center font-bold text-slate-600 text-sm">MC</div>
+                            <div>
+                                <h5 class="text-xs font-bold text-slate-900">María Camila</h5>
+                                <div class="flex text-amber-400"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+                        <p class="text-slate-600 text-sm mb-4">"Excelente atención al cliente y el proceso de compra fue increíblemente fluido y transparente."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center font-bold text-slate-600 text-sm">CR</div>
+                            <div>
+                                <h5 class="text-xs font-bold text-slate-900">Carlos Rodríguez</h5>
+                                <div class="flex text-amber-400"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+                        <p class="text-slate-600 text-sm mb-4">"Diseño impecable y funcionalidad perfecta. Mi tienda favorita para gadgets minimalistas."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center font-bold text-slate-600 text-sm">SL</div>
+                            <div>
+                                <h5 class="text-xs font-bold text-slate-900">Sofía López</h5>
+                                <div class="flex text-amber-400"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-900 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+                <div class="max-w-xl mx-auto relative z-10 space-y-4">
+                    <h2 class="text-2xl sm:text-3xl font-bold">Obtén 10% de descuento en tu primera compra</h2>
+                    <p class="text-slate-400 text-sm">Suscríbete a nuestro boletín para recibir ofertas exclusivas y novedades.</p>
+                    <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2 pt-2">
+                        <input type="email" required placeholder="Tu correo electrónico..." class="flex-grow bg-slate-800 text-white placeholder-slate-500 text-sm px-4 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-white/20">
+                        <button type="submit" class="bg-white text-slate-900 font-semibold px-6 py-3 rounded-full text-sm hover:bg-slate-100 transition">Suscribirme</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div class="col-span-2 md:col-span-1 space-y-3">
+                <div class="flex items-center gap-2">
+                    <div class="bg-slate-900 text-white p-1.5 rounded-lg"><i data-lucide="gem" class="w-4 h-4"></i></div>
+                    <span class="text-base font-bold text-slate-900">AuraStore</span>
+                </div>
+                <p class="text-slate-500">Elevando la experiencia de compra en línea con elegancia y simplicidad.</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-slate-900 mb-3">Navegación</h5>
+                <ul class="space-y-2">
+                    <li><a href="#hero" class="hover:text-slate-900">Inicio</a></li>
+                    <li><a href="#catalogo" class="hover:text-slate-900">Catálogo</a></li>
+                    <li><a href="#garantias" class="hover:text-slate-900">Garantías</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-slate-900 mb-3">Ayuda</h5>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-slate-900">Preguntas Frecuentes</a></li>
+                    <li><a href="#" class="hover:text-slate-900">Términos y Condiciones</a></li>
+                    <li><a href="#" class="hover:text-slate-900">Políticas de Privacidad</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-slate-900 mb-3">Contacto</h5>
+                <p>soporte@aurastore.com</p>
+                <p class="mt-1">+1 (555) 019-2834</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-400">
+            <p>&copy; 2026 AuraStore. Todos los derechos reservados.</p>
+            <div class="flex gap-4">
+                <i data-lucide="credit-card" class="w-5 h-5"></i>
+                <i data-lucide="shield" class="w-5 h-5"></i>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cart-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white z-50 shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-4 border-b border-slate-100 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i data-lucide="shopping-bag" class="w-5 h-5 text-slate-900"></i>
+                <h3 class="font-bold text-slate-900">Tu Carrito</h3>
+            </div>
+            <button id="close-cart-btn" class="p-1 hover:bg-slate-100 rounded-full text-slate-400 hover:text-slate-600 transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <div id="cart-items" class="flex-grow overflow-y-auto p-4 space-y-4 custom-scrollbar">
+            </div>
+
+        <div class="p-4 border-t border-slate-100 bg-slate-50 space-y-3">
+            <div class="space-y-1 text-xs">
+                <div class="flex justify-between text-slate-500">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">$0.00</span>
+                </div>
+                <div class="flex justify-between text-slate-500">
+                    <span>Envío</span>
+                    <span id="cart-shipping">Gratis</span>
+                </div>
+                <div class="flex justify-between font-bold text-slate-900 text-sm pt-2 border-t border-slate-200">
+                    <span>Total</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+            </div>
+            <button id="checkout-btn" class="w-full bg-slate-900 text-white font-medium py-3 rounded-full text-sm hover:bg-slate-800 transition flex items-center justify-center gap-2 shadow-lg shadow-slate-900/10">
+                Finalizar Compra por WhatsApp
+                <i data-lucide="message-square" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </aside>
+
+    <div id="quickview-backdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div id="quickview-modal" class="bg-white rounded-3xl max-w-2xl w-full p-6 relative scale-95 transition-transform duration-300 overflow-hidden">
+            <button id="close-quickview" class="absolute top-4 right-4 p-2 bg-slate-100 rounded-full text-slate-500 hover:text-slate-800 transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div id="quickview-content" class="grid sm:grid-cols-2 gap-6">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        // BASE DE DATOS DE PRODUCTOS
+        const products = [
+            {
+                id: 1,
+                name: "Reloj Minimalista Steel",
+                category: "lifestyle",
+                price: 120.00,
+                oldPrice: 150.00,
+                rating: 5,
+                badge: "Oferta",
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
+                description: "Reloj de diseño escandinavo con correa de malla de acero inoxidable y resistencia al agua."
+            },
+            {
+                id: 2,
+                name: "Auriculares Noise-Cancelling",
+                category: "tech",
+                price: 189.99,
+                oldPrice: 249.99,
+                rating: 5,
+                badge: "Popular",
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
+                description: "Sonido de alta resolución con cancelación activa de ruido y batería de 30 horas de duración."
+            },
+            {
+                id: 3,
+                name: "Lámpara LED Smart Touch",
+                category: "hogar",
+                price: 45.00,
+                oldPrice: null,
+                rating: 4,
+                badge: "Nuevo",
+                image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80",
+                description: "Lámpara de escritorio regulable con control táctil y puerto de carga USB integrado."
+            },
+            {
+                id: 4,
+                name: "Teclado Mecánico Wireless",
+                category: "tech",
+                price: 95.00,
+                oldPrice: 110.00,
+                rating: 5,
+                badge: "Oferta",
+                image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80",
+                description: "Teclado mecánico compacto con interruptores silenciosos y retroiluminación RGB sutil."
+            },
+            {
+                id: 5,
+                name: "Botella Térmica Inox 750ml",
+                category: "lifestyle",
+                price: 28.50,
+                oldPrice: null,
+                rating: 4,
+                badge: null,
+                image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80",
+                description: "Mantiene tus bebidas frías por 24 horas o calientes por 12 horas. Libre de BPA."
+            },
+            {
+                id: 6,
+                name: "Mochila Ergonomica Urban",
+                category: "lifestyle",
+                price: 78.00,
+                oldPrice: 90.00,
+                rating: 5,
+                badge: "Popular",
+                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
+                description: "Diseño impermeable con compartimento acolchado para laptop de hasta 16 pulgadas."
+            },
+            {
+                id: 7,
+                name: "Humidificador Ultrasónico",
+                category: "hogar",
+                price: 34.00,
+                oldPrice: 42.00,
+                rating: 4,
+                badge: "Oferta",
+                image: "https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=600&q=80",
+                description: "Difusor de aromas silencioso con luz nocturna cálida para ambientes relajantes."
+            },
+            {
+                id: 8,
+                name: "Soporte de Aluminio Laptop",
+                category: "tech",
+                price: 39.99,
+                oldPrice: null,
+                rating: 5,
+                badge: "Nuevo",
+                image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80",
+                description: "Soporte ergonómico plegable de aluminio para mejorar la postura y ventilación."
+            }
+        ];
+
+        // ESTADO GLOBAL
+        let cart = JSON.parse(localStorage.getItem('aurastore_cart')) || [];
+        let currentCategory = 'all';
+        let searchQuery = '';
+        let currentSort = 'default';
+
+        // INICIALIZACIÓN
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            updateCartUI();
+            startCountdown();
+            setupEventListeners();
+            lucide.createIcons();
+        });
+
+        // RENDERIZAR PRODUCTOS
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            
+            let filtered = products.filter(p => {
+                const matchCategory = currentCategory === 'all' || p.category === currentCategory;
+                const matchSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchCategory && matchSearch;
+            });
+
+            if (currentSort === 'price-low') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (currentSort === 'price-high') {
+                filtered.sort((a, b) => b.price - a.price);
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-slate-400">
+                        <i data-lucide="package-search" class="w-12 h-12 mx-auto mb-2 opacity-50"></i>
+                        <p class="text-sm">No se encontraron productos que coincidan con la búsqueda.</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            grid.innerHTML = filtered.map(product => `
+                <div class="group bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative aspect-square bg-slate-100 overflow-hidden">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        ${product.badge ? `<span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-slate-900 text-white px-2.5 py-1 rounded-full">${product.badge}</span>` : ''}
+                        
+                        <button onclick="openQuickView(${product.id})" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-md p-2 rounded-full text-slate-700 opacity-0 group-hover:opacity-100 hover:bg-slate-900 hover:text-white transition-all shadow-md">
+                            <i data-lucide="eye" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-4 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-amber-400 mb-1">
+                                ${Array(product.rating).fill('<i data-lucide="star" class="w-3 h-3 fill-current"></i>').join('')}
+                            </div>
+                            <h3 class="font-semibold text-slate-900 text-sm mb-1">${product.name}</h3>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-base font-bold text-slate-900">$${product.price.toFixed(2)}</span>
+                                ${product.oldPrice ? `<span class="text-xs text-slate-400 line-through ml-1">$${product.oldPrice.toFixed(2)}</span>` : ''}
+                            </div>
+                            <button onclick="addToCart(${product.id})" class="bg-slate-100 hover:bg-slate-900 text-slate-800 hover:text-white p-2.5 rounded-xl transition-colors">
+                                <i data-lucide="plus" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        // LÓGICA DEL CARRITO
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            const item = cart.find(i => i.id === id);
+
+            if (item) {
+                item.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            saveCart();
+            updateCartUI();
+            showToast(`Añadido: ${product.name}`);
+        }
+
+        function updateQuantity(id, change) {
+            const item = cart.find(i => i.id === id);
+            if (!item) return;
+
+            item.quantity += change;
+            if (item.quantity <= 0) {
+                cart = cart.filter(i => i.id !== id);
+            }
+
+            saveCart();
+            updateCartUI();
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(i => i.id !== id);
+            saveCart();
+            updateCartUI();
+        }
+
+        function saveCart() {
+            localStorage.setItem('aurastore_cart', JSON.stringify(cart));
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const container = document.getElementById('cart-items');
+            const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+            // Actualizar Badge
+            badge.textContent = totalItems;
+            badge.style.transform = totalItems > 0 ? 'scale(1)' : 'scale(0)';
+
+            // Actualizar Lista del Carrito
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center text-slate-400 py-12">
+                        <i data-lucide="shopping-bag" class="w-12 h-12 mb-2 opacity-30"></i>
+                        <p class="text-sm">Tu carrito está vacío</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = cart.map(item => `
+                    <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                        <img src="${item.image}" class="w-16 h-16 object-cover rounded-xl bg-white">
+                        <div class="flex-grow">
+                            <h4 class="text-xs font-bold text-slate-900">${item.name}</h4>
+                            <p class="text-xs font-semibold text-slate-600 mt-1">$${item.price.toFixed(2)}</p>
+                            <div class="flex items-center gap-2 mt-2">
+                                <button onclick="updateQuantity(${item.id}, -1)" class="w-5 h-5 bg-white border border-slate-200 rounded flex items-center justify-center text-xs text-slate-600">-</button>
+                                <span class="text-xs font-bold">${item.quantity}</span>
+                                <button onclick="updateQuantity(${item.id}, 1)" class="w-5 h-5 bg-white border border-slate-200 rounded flex items-center justify-center text-xs text-slate-600">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-slate-400 hover:text-red-500 p-1 transition">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            // Actualizar Totales
+            const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+            document.getElementById('cart-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('cart-total').textContent = `$${subtotal.toFixed(2)}`;
+
+            lucide.createIcons();
+        }
+
+        // QUICK VIEW MODAL
+        function openQuickView(id) {
+            const product = products.find(p => p.id === id);
+            const modalContent = document.getElementById('quickview-content');
+
+            modalContent.innerHTML = `
+                <div class="aspect-square bg-slate-100 rounded-2xl overflow-hidden">
+                    <img src="${product.image}" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">${product.category}</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1">${product.name}</h3>
+                        <div class="flex text-amber-400 my-2">
+                            ${Array(product.rating).fill('<i data-lucide="star" class="w-4 h-4 fill-current"></i>').join('')}
+                        </div>
+                        <p class="text-slate-500 text-xs mt-2 leading-relaxed">${product.description}</p>
+                    </div>
+                    <div class="mt-6 space-y-4">
+                        <div class="text-2xl font-bold text-slate-900">$${product.price.toFixed(2)}</div>
+                        <button onclick="addToCart(${product.id}); closeQuickViewModal();" class="w-full bg-slate-900 text-white font-medium py-3 rounded-full text-sm hover:bg-slate-800 transition">
+                            Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            const backdrop = document.getElementById('quickview-backdrop');
+            const modal = document.getElementById('quickview-modal');
+
+            backdrop.classList.remove('hidden');
+            setTimeout(() => {
+                backdrop.classList.remove('opacity-0');
+                modal.classList.remove('scale-95');
+            }, 10);
+
+            lucide.createIcons();
+        }
+
+        function closeQuickViewModal() {
+            const backdrop = document.getElementById('quickview-backdrop');
+            const modal = document.getElementById('quickview-modal');
+
+            backdrop.classList.add('opacity-0');
+            modal.classList.add('scale-95');
+            setTimeout(() => backdrop.classList.add('hidden'), 300);
+        }
+
+        // NOTIFICACIONES TOAST
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-900 text-white text-xs px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2 transition-all duration-300 translate-y-5 opacity-0';
+            toast.innerHTML = `<i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ${message}`;
+
+            container.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-5', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-5');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // TIMER OFERTA DEL DÍA
+        function startCountdown() {
+            let hours = 8, minutes = 45, seconds = 30;
+            setInterval(() => {
+                if (seconds > 0) seconds--;
+                else {
+                    seconds = 59;
+                    if (minutes > 0) minutes--;
+                    else {
+                        minutes = 59;
+                        if (hours > 0) hours--;
+                    }
+                }
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            }, 1000);
+        }
+
+        // EVENT LISTENERS
+        function setupEventListeners() {
+            // Abrir y Cerrar Carrito
+            const drawer = document.getElementById('cart-drawer');
+            const backdrop = document.getElementById('cart-backdrop');
+
+            const toggleCart = (open) => {
+                if (open) {
+                    backdrop.classList.remove('pointer-events-none', 'opacity-0');
+                    drawer.classList.remove('translate-x-full');
+                } else {
+                    backdrop.classList.add('pointer-events-none', 'opacity-0');
+                    drawer.classList.add('translate-x-full');
+                }
+            };
+
+            document.getElementById('open-cart-btn').addEventListener('click', () => toggleCart(true));
+            document.getElementById('close-cart-btn').addEventListener('click', () => toggleCart(false));
+            backdrop.addEventListener('click', () => toggleCart(false));
+
+            // Modal Quick View
+            document.getElementById('close-quickview').addEventListener('click', closeQuickViewModal);
+
+            // Búsqueda
+            const handleSearch = (e) => {
+                searchQuery = e.target.value;
+                renderProducts();
+            };
+            document.getElementById('search-input').addEventListener('input', handleSearch);
+            document.getElementById('search-input-mobile').addEventListener('input', handleSearch);
+
+            // Filtro Categorías
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.cat-btn').forEach(b => {
+                        b.className = 'cat-btn px-4 py-2 text-xs font-semibold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition';
+                    });
+                    e.target.className = 'cat-btn px-4 py-2 text-xs font-semibold rounded-full bg-slate-900 text-white transition';
+                    currentCategory = e.target.dataset.category;
+                    renderProducts();
+                });
+            });
+
+            // Ordenamiento
+            document.getElementById('sort-select').addEventListener('change', (e) => {
+                currentSort = e.target.value;
+                renderProducts();
+            });
+
+            // Formulario Newsletter
+            document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                showToast('¡Gracias por suscribirte! Código: BIENVENIDA10');
+                e.target.reset();
+            });
+
+            // Finalizar Compra en WhatsApp
+            document.getElementById('checkout-btn').addEventListener('click', () => {
+                if (cart.length === 0) {
+                    alert('Tu carrito está vacío.');
+                    return;
+                }
+
+                let message = "Hola AuraStore, me gustaría realizar el siguiente pedido:%0A%0A";
+                cart.forEach(i => {
+                    message += `• ${i.name} (x${i.quantity}) - $${(i.price * i.quantity).toFixed(2)}%0A`;
+                });
+                
+                const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+                message += `%0A*Total:* $${total.toFixed(2)}`;
+
+                window.open(`https://wa.me/15550192834?text=${message}`, '_blank');
+            });
+        }
+    </script>
+</body>
+</html>
