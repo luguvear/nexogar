@@ -28,7 +28,7 @@
 <body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
 
     <script>
-        // Número de WhatsApp del negocio (clave de país + número sin + ni espacios)
+        // Cambia este número al número de WhatsApp de tu negocio (incluye clave de país, sin espacios ni +)
         const TELEFONO_WHATSAPP = "526692558761"; 
     </script>
 
@@ -48,7 +48,7 @@
                 <div class="hidden md:flex flex-1 max-w-md mx-8 relative">
                     <input type="text" id="searchInput" placeholder="Buscar cámaras, cerraduras, sensores..." 
                         class="w-full pl-10 pr-4 py-2.5 bg-slate-100 border border-slate-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all">
-                    <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3.5 text-slate-400"></i>
+                    <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3 text-slate-400"></i>
                 </div>
 
                 <div class="flex items-center gap-6">
@@ -120,7 +120,7 @@
                         <span class="text-[10px] uppercase text-slate-400">Seg</span>
                     </div>
                     <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-700">
-                        <span class="block text-2xl font-bold text-emerald-400">-33%</span>
+                        <span class="block text-2xl font-bold text-emerald-400">-35%</span>
                         <span class="text-[10px] uppercase text-slate-400">Desc</span>
                     </div>
                 </div>
@@ -128,16 +128,16 @@
                 <div class="flex items-center gap-4">
                     <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=300&q=80" alt="Cerradura Biométrica" class="w-24 h-24 object-cover rounded-2xl border border-slate-700">
                     <div class="space-y-1">
-                        <h3 class="font-bold text-white text-base">Cerradura Biométrica Huella & App Wi-Fi</h3>
-                        <p class="text-xs text-slate-400">Lector biométrico, App Tuya/SmartLife y contraseñas</p>
+                        <h3 class="font-bold text-white text-base">Cerradura Inteligente Biométrica Pro X</h3>
+                        <p class="text-xs text-slate-400">Huella, Clave, Tarjeta RFID y Control Wi-Fi App</p>
                         <div class="flex items-center gap-2 pt-1">
                             <span class="text-xl font-extrabold text-cyan-400">$2,199 MXN</span>
-                            <span class="text-sm text-slate-500 line-through">$3,299 MXN</span>
+                            <span class="text-sm text-slate-500 line-through">$3,399 MXN</span>
                         </div>
                     </div>
                 </div>
 
-                <button onclick="addToCart(11)" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                <button onclick="addToCart(2)" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
                     <i data-lucide="shopping-cart" class="w-4 h-4"></i> Aprovechar Oferta
                 </button>
             </div>
@@ -183,7 +183,8 @@
             </button>
         </div>
 
-        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            </div>
 
         <div id="noResults" class="hidden text-center py-16 space-y-4">
             <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto text-slate-400">
@@ -345,7 +346,7 @@
             <div>
                 <h4 class="text-sm font-bold text-white mb-3">Contacto</h4>
                 <ul class="space-y-2 text-xs">
-                    <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-blue-500"></i> +52 (669) 255-8761</li>
+                    <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-blue-500"></i> +52 (669) 123-4567</li>
                     <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-blue-500"></i> ventas@Codemx.com</li>
                     <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-blue-500"></i> México</li>
                 </ul>
@@ -368,7 +369,8 @@
                 </button>
             </div>
 
-            <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-4 space-y-4"></div>
+            <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-4 space-y-4">
+                </div>
 
             <div class="p-4 border-t border-slate-200 bg-slate-50 space-y-3">
                 <div class="space-y-1.5 text-xs text-slate-600">
@@ -399,14 +401,15 @@
             <button onclick="closeQuickView()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition-colors">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
-            <div id="quickViewContent" class="grid sm:grid-cols-2 gap-6 items-center"></div>
+            <div id="quickViewContent" class="grid sm:grid-cols-2 gap-6 items-center">
+                </div>
         </div>
     </div>
 
     <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2"></div>
 
     <script>
-        // Array Completo de 50 Productos Domóticos
+        // Array Completo de 50 Productos de Domótica
         const productos = [
             // Categoria: seguridad (1 a 10)
             { id: 1, nombre: "Cámara de Seguridad Exterior 4K Solar Wi-Fi", categoria: "seguridad", precio: 1899, precioAnterior: 2499, rating: 4.9, badge: "Más Vendido", imagen: "imagenes/DS2CD1043G2LIU(F)-h.PNG", descripcion: "Cámara exterior con panel solar, visión nocturna a color, detección IA de humanos y audio bidireccional." },
@@ -419,136 +422,82 @@
             { id: 8, nombre: "Foco Cámara 360° Panoramic Socket E27", categoria: "seguridad", precio: 549, precioAnterior: 799, rating: 4.6, badge: "Oferta", imagen: "imagenes/DS2CD1043G2LIU(F)-h.PNG", descripcion: "Se enrosca en cualquier socket de foco común. Instalación sin cables en menos de 2 minutos." },
             { id: 9, nombre: "Cámara Batería 100% Inalámbrica Magnética", categoria: "seguridad", precio: 1499, precioAnterior: 1899, rating: 4.7, badge: null, imagen: "imagenes/DS2CD1043G2LIU(F)-h.PNG", descripcion: "Batería de litio con duración de hasta 6 meses por carga. Resistencia intemperie IP65." },
             { id: 10, nombre: "Kit Sistema Alarma Smart Wi-Fi + 4G SIM", categoria: "seguridad", precio: 2499, precioAnterior: 3199, rating: 4.9, badge: "Recomendado", imagen: "imagenes/DS2CD1043G2LIU(F)-h.PNG", descripcion: "Panel táctil central con batería de respaldo, sirena potente y notificaciones push inmediatas." },
-
             // Categoria: cerraduras (11 a 20)
             { id: 11, nombre: "Cerradura Biométrica Huella & App Wi-Fi", categoria: "cerraduras", precio: 2199, precioAnterior: 3299, rating: 4.9, badge: "Oferta", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Acceso mediante lector semiconductor de huella, códigos temporales para visitas y llaves mecánicas." },
             { id: 12, nombre: "Cerradura Digital Touch con Teclado Retroiluminado", categoria: "cerraduras", precio: 1699, precioAnterior: 2199, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Ideales para departamentos de renta corta o Airbnb. Genera contraseñas con caducidad." },
             { id: 13, nombre: "Cerradura Inteligente para Puertas de Cristal", categoria: "cerraduras", precio: 2599, precioAnterior: 3199, rating: 4.8, badge: "Oficina", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Instalación sin perforar para oficinas o comercios. Tarjetas RFID, huella y PIN numérico." },
             { id: 14, nombre: "Control de Acceso Facial e Infrarrojo RFID", categoria: "cerraduras", precio: 3499, precioAnterior: 4299, rating: 5.0, badge: "Pro", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Reconocimiento facial 3D ultra rápido en 0.2 segundos aun en completa oscuridad." },
-            { id: 15, nombre: "Chapa Magnética Inteligente 280kg / 600lbs", categoria: "cerraduras", precio: 1199, precioAnterior: 1599, rating: 4.6, badge: null, imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Fuerza de sujeción electromagnética para portones y puertas de alta seguridad." },
-            { id: 16, nombre: "Candado Biométrico Impermeable USB Smart", categoria: "cerraduras", precio: 399, precioAnterior: 599, rating: 4.4, badge: "Económico", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Almacena hasta 10 huellas digitales. Batería de larga duración recargable por MicroUSB." },
-            { id: 17, nombre: "Cerrojo Inteligente Deadbolt Wi-Fi Integrado", categoria: "cerraduras", precio: 1999, precioAnterior: 2699, rating: 4.8, badge: "Popular", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Reemplaza el cerrojo tradicional sin modificar la marimba de la puerta." },
-            { id: 18, nombre: "Caja Fuerte Biométrica Digital de Acero", categoria: "cerraduras", precio: 2899, precioAnterior: 3599, rating: 4.9, badge: null, imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Apertura por huella, código y llave de emergencia. Notificación de intento de apertura forzada." },
-            { id: 19, nombre: "Manija Inteligente para Puertas Interiores", categoria: "cerraduras", precio: 1499, precioAnterior: 1899, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Ideal para recámaras u oficinas en casa. Lector de huella integrado directamente en la manija." },
-            { id: 20, nombre: "Módulo Receptor para Portón Eléctrico Smart", categoria: "cerraduras", precio: 459, precioAnterior: 659, rating: 4.8, badge: "Nuevo", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Abre el portón del cochera desde tu celular o comandos de voz sin depender del control remoto." },
+            { id: 15, nombre: "Chapa Magnética Inteligente 280kg / 600lbs", categoria: "cerraduras", precio: 1199, precioAnterior: 1599, rating: 4.6, badge: null, imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Electroimán de alta presión para portones y puertas de seguridad con botón de salida inalámbrico." },
+            { id: 16, nombre: "Cerrojo Inteligente Wi-Fi para Puerta Principal", categoria: "cerraduras", precio: 1899, precioAnterior: 2399, rating: 4.8, badge: "Top 1", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Diseño elegante en aleación de aluminio negra. Compatible con cerrojos estándar sin modificar la puerta." },
+            { id: 17, nombre: "Cerradura Smart con Cámara PeepHole Integrada", categoria: "cerraduras", precio: 3899, precioAnterior: 4999, rating: 4.9, badge: "Premium", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Pantalla HD interior de 4 pulgadas y cámara exterior que toma fotos automáticamente de quien llama a la puerta." },
+            { id: 18, nombre: "Interfon Portero Inteligente Multidepartamental", categoria: "cerraduras", precio: 4299, precioAnterior: 5199, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Abre el portón eléctrico desde el smartphone para repartidores y visitas." },
+            { id: 19, nombre: "Cerradura Invisible de Alta Seguridad Anti-Bumping", categoria: "cerraduras", precio: 1599, precioAnterior: 1999, rating: 4.8, badge: "Inviolable", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Inviolable por fuera ya que no posee cilindro exterior. Operación con mandos a distancia e integración Wi-Fi." },
+            { id: 20, nombre: "Controlador para Portón Eléctrico Garage Smart", categoria: "cerraduras", precio: 649, precioAnterior: 899, rating: 4.9, badge: "Fácil Instalación", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Abre y cierra la cochera con la voz desde CarPlay, Android Auto o sensores de proximidad." },
 
             // Categoria: enchufes (21 a 30)
-            { id: 21, nombre: "Foco LED Smart RGB+W 10W Alexa/Google (Kit 2)", categoria: "enchufes", precio: 349, precioAnterior: 499, rating: 4.8, badge: "Más Vendido", imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "16 millones de colores, regulación de brillo y programación de horarios automáticos." },
-            { id: 22, nombre: "Enchufe Inteligente Wi-Fi con Monitor de Energía", categoria: "enchufes", precio: 249, precioAnterior: 349, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "Mide el consumo eléctrico en tiempo real de tus aparatos y programa encendidos." },
-            { id: 23, nombre: "Apagador Táctil Smart de cristal 3 Apagadores", categoria: "enchufes", precio: 489, precioAnterior: 689, rating: 4.9, badge: "Elegante", imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "Panel de vidrio templado capacitivo con luz tenue para localización nocturna." },
-            { id: 24, nombre: "Tira LED RGBIC Neón Flexible 5 Metros Exterior", categoria: "enchufes", precio: 799, precioAnterior: 1099, rating: 4.8, badge: "Nuevo", imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "Efectos multicolores en movimiento sincronizados con la música de tu ambiente." },
-            { id: 25, nombre: "Barra de Contactos Multicontacto Wi-Fi 4 AC + 4 USB", categoria: "enchufes", precio: 649, precioAnterior: 899, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "Control de encendido independiente para cada toma con protección contra sobretensiones." },
-            { id: 26, nombre: "Dimmer Regulador de Luz Inteligente de Pared", categoria: "enchufes", precio: 399, precioAnterior: 549, rating: 4.6, badge: null, imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "Ajusta la intensidad de tus luces focales mediante slider táctil o comandos de voz." },
-            { id: 27, nombre: "Lámpara de Noche Inteligente RGB con Altavoz", categoria: "enchufes", precio: 899, precioAnterior: 1199, rating: 4.8, badge: null, imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "Luz de veladora con altavoz Bluetooth integrado e imitación de amanecer para despertar." },
-            { id: 28, nombre: "Proyector de Estrellas y Galaxia Smart Wi-Fi", categoria: "enchufes", precio: 749, precioAnterior: 1049, rating: 4.9, badge: "Trending", imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "Transforma tus techos en auroras boreales y noches estrelladas controladas por App." },
-            { id: 29, nombre: "Foco Smart Gu10 dicroico RGB 5W (Kit 4)", categoria: "enchufes", precio: 699, precioAnterior: 949, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "Focos tipo spot para empotrar con cambio de temperatura de color blanca a RGB." },
-            { id: 30, nombre: "Luminaria LED de Techo Plafón Redondo 24W", categoria: "enchufes", precio: 999, precioAnterior: 1399, rating: 4.8, badge: null, imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "Plafón ultra delgado con ajuste de luz cálida a fría e iluminación multicolor ambiental trasra." },
+            { id: 21, nombre: "Enchufe Contacto Inteligente Dual Wi-Fi 16A", categoria: "enchufes", precio: 299, precioAnterior: 449, rating: 4.8, badge: "Económico", imagen: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=500&q=80", descripcion: "Medidor de consumo eléctrico en tiempo real, temporizador y control individual de cada contacto." },
+            { id: 22, nombre: "Apagador Touch Inteligente 3 Vías Neutral", categoria: "enchufes", precio: 389, precioAnterior: 549, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=500&q=80", descripcion: "Cristal templado capacitivo. Programa encendido automático al anochecer." },
+            { id: 23, nombre: "Foco LED Smart RGBW 10W Alexa/Google 4-Pack", categoria: "enchufes", precio: 599, precioAnterior: 899, rating: 4.9, badge: "Kit Ahorro", imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "16 millones de colores, tonos calidos y fríos sincronizables al ritmo de la música." },
+            { id: 24, nombre: "Barra de Luz Ambiental Sync TV RGBIC Ambient", categoria: "enchufes", precio: 1199, precioAnterior: 1599, rating: 4.8, badge: "Gaming", imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "Se conecta a la TV para proyectar la gama de colores del video en la pared trasera." },
+            { id: 25, nombre: "Tira LED Smart RGBIC 10 Metros Neón Flex", categoria: "enchufes", precio: 849, precioAnterior: 1199, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "Efecto Neón continuo flexible e impermeable IP67 para exteriores o jardines." },
+            { id: 26, nombre: "Contacto Inteligente Exterior Doble IP66 Uso Rudo", categoria: "enchufes", precio: 529, precioAnterior: 749, rating: 4.9, badge: null, imagen: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=500&q=80", descripcion: "Soporta lluvias y polvo. Ideal para luces de jardín, fuentes o iluminación navideña." },
+            { id: 27, nombre: "Dimmer Atenuador Touch Inteligente de Luz", categoria: "enchufes", precio: 429, precioAnterior: 599, rating: 4.6, badge: null, imagen: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=500&q=80", descripcion: "Regula el porcentaje de brillo desde 1% hasta 100% mediante voz o deslizamiento táctil." },
+            { id: 28, nombre: "Plafón Cielorraso Smart LED RGB 36W Altavoz Bluetooth", categoria: "enchufes", precio: 1299, precioAnterior: 1799, rating: 4.8, badge: "Luminaria", imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "Lámpara de techo ultradelgada con bocina integrada para reproducir audio desde el celular." },
+            { id: 29, nombre: "Foco Filamento Vintage Edison Smart Wi-Fi", categoria: "enchufes", precio: 249, precioAnterior: 349, rating: 4.8, badge: "Diseño", imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80", descripcion: "Estética retro ambar regulable cálida para restaurantes, barras o salas de estar." },
+            { id: 30, nombre: "Multicontacto Inteligente 4 Tomas + 4 USB C Fast", categoria: "enchufes", precio: 799, precioAnterior: 1099, rating: 4.9, badge: "Top Ventas", imagen: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=500&q=80", descripcion: "Protección contra sobretensiones y control independiente de cada tomacorriente." },
 
             // Categoria: clima (31 a 40)
-            { id: 31, nombre: "Termostato Inteligente Digital Programable", categoria: "clima", precio: 1599, precioAnterior: 2199, rating: 4.9, badge: "Ahorro", imagen: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?auto=format&fit=crop&w=500&q=80", descripcion: "Ahorra hasta un 30% en tu recibo de luz administrando eficientemente el aire acondicionado." },
-            { id: 32, nombre: "Control Remoto Universal IR / RF Wi-Fi 360°", categoria: "clima", precio: 299, precioAnterior: 449, rating: 4.8, badge: "Más Vendido", imagen: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?auto=format&fit=crop&w=500&q=80", descripcion: "Controla Minisplits, pantallas y reproductores desde tu celular reemplazando controles remotos." },
-            { id: 33, nombre: "Humidificador & Difusor de Aromas Smart 500ml", categoria: "clima", precio: 599, precioAnterior: 849, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?auto=format&fit=crop&w=500&q=80", descripcion: "Sincroniza la humedad ideal de tus espacios y perfuma tu hogar con aceites esenciales." },
-            { id: 34, nombre: "Motor Inteligente para Cortinas enrollables", categoria: "clima", precio: 1499, precioAnterior: 1999, rating: 4.8, badge: "Nuevo", imagen: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?auto=format&fit=crop&w=500&q=80", descripcion: "Abre y cierra tus cortinas automáticamente al salir el sol o por comandos de voz." },
-            { id: 35, nombre: "Purificador de Aire HEPA H13 Smart Wi-Fi", categoria: "clima", precio: 2399, precioAnterior: 2999, rating: 4.9, badge: "Salud", imagen: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?auto=format&fit=crop&w=500&q=80", descripcion: "Elimina el 99.97% de polvo, polen y alérgenos con sensores de calidad de aire en vivo." },
-            { id: 36, nombre: "Ventilador de Torre Inteligente Oscilante", categoria: "clima", precio: 1899, precioAnterior: 2399, rating: 4.6, badge: null, imagen: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?auto=format&fit=crop&w=500&q=80", descripcion: "Flujo de aire ultra silencioso con 12 velocidades y modo brisa natural programable." },
-            { id: 37, nombre: "Válvula Termostática para Radiadores Smart Zigbee", categoria: "clima", precio: 699, precioAnterior: 949, rating: 4.5, badge: null, imagen: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?auto=format&fit=crop&w=500&q=80", descripcion: "Regula la temperatura independiente por cada habitación de la residencia." },
-            { id: 38, nombre: "Sensor de Temperatura y Humedad con Pantalla LCD", categoria: "clima", precio: 279, precioAnterior: 399, rating: 4.8, badge: null, imagen: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?auto=format&fit=crop&w=500&q=80", descripcion: "Crea rutinas automáticas: si la temperatura sube de 26°C, enciende el Minisplit." },
-            { id: 39, nombre: "Cálfactor cerámico inteligente PTC de Torre", categoria: "clima", precio: 1299, precioAnterior: 1699, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?auto=format&fit=crop&w=500&q=80", descripcion: "Calentamiento rápido en 2 segundos con apagado automático por vuelco o sobrecalentamiento." },
-            { id: 40, nombre: "Interruptor Smart para Ventilador de Techo", categoria: "clima", precio: 429, precioAnterior: 599, rating: 4.6, badge: null, imagen: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?auto=format&fit=crop&w=500&q=80", descripcion: "Control de velocidad de 4 niveles e iluminación del ventilador desde tu celular." },
+            { id: 31, nombre: "Minisplit Inverter Inteligente 12000 BTU Wi-Fi", categoria: "clima", precio: 7899, precioAnterior: 9999, rating: 5.0, badge: "Ahorro 60%", imagen: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80", descripcion: "Enfría tu recámara antes de llegar a casa. Compresor ecológico super silencioso." },
+            { id: 32, nombre: "Control Remoto IR Universal Smart 360° Wi-Fi", categoria: "clima", precio: 249, precioAnterior: 399, rating: 4.7, badge: "Imprescindible", imagen: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=500&q=80", descripcion: "Convierte cualquier aire acondicionado o pantalla convencional en inteligente." },
+            { id: 33, nombre: "Termostato Digital Programable para Clima Central", categoria: "clima", precio: 1899, precioAnterior: 2399, rating: 4.9, badge: null, imagen: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80", descripcion: "Ajuste automático según geolocalización de tu celular para optimizar el consumo eléctrico." },
+            { id: 34, nombre: "Purificador de Aire Inteligente HEPA H13 Filtro", categoria: "clima", precio: 2899, precioAnterior: 3599, rating: 4.8, badge: "Salud", imagen: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80", descripcion: "Elimina 99.97% de polvo, alérgenos y virus. Sensor de calidad del aire en pantalla." },
+            { id: 35, nombre: "Ventilador de Techo Inteligente con Luz LED RGB", categoria: "clima", precio: 3299, precioAnterior: 4199, rating: 4.8, badge: null, imagen: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80", descripcion: "Motor DC ultra silencioso con 6 velocidades y cambio de dirección verano/invierno." },
+            { id: 36, nombre: "Válvula Inteligente para Corte de Agua y Gas", categoria: "clima", precio: 899, precioAnterior: 1299, rating: 4.9, badge: "Prevención", imagen: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80", descripcion: "Cierra automáticamente la llave de paso de agua al detectar una fuga con los sensores." },
+            { id: 37, nombre: "Motor Inteligente para Cortinas Enrollables Wi-Fi", categoria: "clima", precio: 1499, precioAnterior: 1999, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80", descripcion: "Abre tus persianas con la luz del sol por la mañana o mediante comandos de voz." },
+            { id: 38, nombre: "Válvula Radiador Termostático Inteligente Zigbee", categoria: "clima", precio: 749, precioAnterior: 999, rating: 4.6, badge: null, imagen: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80", descripcion: "Control de temperatura preciso habitación por habitación." },
+            { id: 39, nombre: "Deshumidificador Smart 12L con Control App", categoria: "clima", precio: 3699, precioAnterior: 4499, rating: 4.9, badge: null, imagen: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80", descripcion: "Ideal para zonas costeras. Mantiene la humedad óptima evitando moho y malos olores." },
+            { id: 40, nombre: "Difusor de Aromas Ultrasónico Inteligente RGB", categoria: "clima", precio: 499, precioAnterior: 699, rating: 4.8, badge: "Popular", imagen: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80", descripcion: "Aromatiza tu espacio con horarios programables e integración con asistentes inteligentes." },
 
             // Categoria: sensores (41 a 50)
-            { id: 41, nombre: "Sensor de Apertura Puerta / Ventana Wi-Fi", categoria: "sensores", precio: 199, precioAnterior: 299, rating: 4.8, badge: "Económico", imagen: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=500&q=80", descripcion: "Recibe alertas instantáneas en tu smartphone cada vez que se abra una puerta o ventana." },
-            { id: 42, nombre: "Sensor de Movimiento PIR Inalámbrico Smart", categoria: "sensores", precio: 289, precioAnterior: 399, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=500&q=80", descripcion: "Detecta intrusos en un ángulo de 110° e integra automatización para encender luces." },
-            { id: 43, nombre: "Detector de Fugas de Agua e Inundación Smart", categoria: "sensores", precio: 329, precioAnterior: 459, rating: 4.9, badge: "Prevención", imagen: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=500&q=80", descripcion: "Sonda de alta sensibilidad para colocar en cocinas, lavanderías o cerca del calentador." },
-            { id: 44, nombre: "Detector de Humo e Incendios Fotoeléctrico", categoria: "sensores", precio: 449, precioAnterior: 599, rating: 4.9, badge: "Seguridad", imagen: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=500&q=80", descripcion: "Sirena de 85dB incorporada con notificación push a tu smartphone en caso de humo." },
-            { id: 45, nombre: "Detector de Fuga de Gas L.P. y Natural", categoria: "sensores", precio: 499, precioAnterior: 699, rating: 4.8, badge: null, imagen: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=500&q=80", descripcion: "Alarma sonora y visual con pantalla indicadora de concentración de gas PPM." },
-            { id: 46, nombre: "Válvula Manipuladora de Agua / Gas Motorizada", categoria: "sensores", precio: 799, precioAnterior: 1099, rating: 5.0, badge: "Top Pro", imagen: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=500&q=80", descripcion: "Cierra la llave de paso automáticamente al detectar fuga de agua o gas." },
-            { id: 47, nombre: "Sensor de Calidad de Aire CO2 e índice TVOC", categoria: "sensores", precio: 899, precioAnterior: 1299, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=500&q=80", descripcion: "Monitorea los niveles de dióxido de carbono y contaminantes volátiles en la habitación." },
-            { id: 48, nombre: "Sirena de Alarma Estroboscópica Wi-Fi 105dB", categoria: "sensores", precio: 379, precioAnterior: 529, rating: 4.6, badge: null, imagen: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=500&q=80", descripcion: "Destellos de luz roja y potente sirena disuasiva para disuadir cualquier intrusión." },
-            { id: 49, nombre: "Botón de Pánico SOS Inalámbrico para Adultos Mayores", categoria: "sensores", precio: 229, precioAnterior: 329, rating: 4.9, badge: "Esencial", imagen: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=500&q=80", descripcion: "Envía una llamada de emergencia e intimación de alerta con tan solo presionar un botón." },
-            { id: 50, nombre: "Gateway Hub Zigbee 3.0 / Bluetooth Mesh Universal", categoria: "sensores", precio: 459, precioAnterior: 649, rating: 4.9, badge: "Esencial", imagen: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=500&q=80", descripcion: "Conecta y centraliza hasta 128 dispositivos Zigbee sin saturar tu red Wi-Fi." }
+            { id: 41, nombre: "Sensor de Movimiento PIR Zigbee de Alta Precisión", categoria: "sensores", precio: 329, precioAnterior: 499, rating: 4.8, badge: "Básico", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Enciende luces automáticamente al entrar a una habitación y manda alertas de intrusión." },
+            { id: 42, nombre: "Sensor Puerta/Ventana Magnético Smart 3-Pack", categoria: "sensores", precio: 449, precioAnterior: 649, rating: 4.9, badge: "Oferta", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Notifica instantáneamente si alguna puerta o ventana se queda abierta al salir." },
+            { id: 43, nombre: "Detector de Humo e Incendio Inteligente Fotoeléctrico", categoria: "sensores", precio: 599, precioAnterior: 799, rating: 5.0, badge: "Vital", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Alarma sonora de 85dB e histórico de estado en tu smartphone." },
+            { id: 44, nombre: "Sensor de Fuga de Agua e Inundaciones IP67", categoria: "sensores", precio: 349, precioAnterior: 499, rating: 4.9, badge: "Protección", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Colócalo cerca de lavadoras, fregaderos o calentadores de agua para evitar catástrofes." },
+            { id: 45, nombre: "Detector de Gas LP y Natural con Pantalla LCD", categoria: "sensores", precio: 699, precioAnterior: 949, rating: 4.9, badge: "Seguridad", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Alerta sobre fugas peligrosas de gas en cocina o área de lavado inmediatamente." },
+            { id: 46, nombre: "Sensor Temperatura & Humedad Pantalla e-Paper", categoria: "sensores", precio: 389, precioAnterior: 529, rating: 4.7, badge: null, imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Sincroniza el aire acondicionado automáticamente al superar la temperatura deseada." },
+            { id: 47, nombre: "Sirena de Alarma Estroboscópica 120dB Wi-Fi", categoria: "sensores", precio: 499, precioAnterior: 699, rating: 4.8, badge: null, imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Luz de advertencia roja parpadeante y potente tono de alerta disuasivo." },
+            { id: 48, nombre: "Sensor de Presencia Humana Radar mmWave", categoria: "sensores", precio: 799, precioAnterior: 1099, rating: 4.9, badge: "Última Gen", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Detecta incluso si una persona está inmóvil respirando o durmiendo para no apagar luces." },
+            { id: 49, nombre: "Kit Sensor de Vibración y Rotura de Cristales", categoria: "sensores", precio: 419, precioAnterior: 599, rating: 4.6, badge: null, imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Detecta golpes o rupturas en ventanas antes de que ingresen al inmueble." },
+            { id: 50, nombre: "Botón SOS de Emergencia e Inalámbrico Smart", categoria: "sensores", precio: 279, precioAnterior: 399, rating: 4.9, badge: "Adultos Mayores", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=80", descripcion: "Un solo clic envía una llamada y notificación de alerta inmediata a familiares." }
         ];
 
         // Estado Global
-        let cart = [];
+        let cart = JSON.parse(localStorage.getItem('Codemx_cart')) || [];
         let currentCategory = 'all';
 
         // Inicialización
         document.addEventListener('DOMContentLoaded', () => {
-            renderProducts(productos);
-            initTimer();
-            setupEventListeners();
             lucide.createIcons();
-        });
+            renderProducts();
+            updateCartUI();
+            startCountdown();
 
-        // Event Listeners
-        function setupEventListeners() {
-            // Controles del Carrito
-            document.getElementById('openCartBtn').addEventListener('click', openCart);
-            document.getElementById('closeCartBtn').addEventListener('click', closeCart);
-            document.getElementById('cartDrawerOverlay').addEventListener('click', (e) => {
-                if(e.target.id === 'cartDrawerOverlay') closeCart();
-            });
-
-            // Buscadores
+            // Event Listeners Búsqueda
             document.getElementById('searchInput').addEventListener('input', filterAndSortProducts);
             document.getElementById('searchInputMobile').addEventListener('input', (e) => {
                 document.getElementById('searchInput').value = e.target.value;
                 filterAndSortProducts();
             });
-        }
 
-        // Renderizado del Catálogo
-        function renderProducts(items) {
-            const grid = document.getElementById('productGrid');
-            const noResults = document.getElementById('noResults');
+            // Cart Drawer Controls
+            document.getElementById('openCartBtn').addEventListener('click', openCart);
+            document.getElementById('closeCartBtn').addEventListener('click', closeCart);
+            document.getElementById('cartDrawerOverlay').addEventListener('click', (e) => {
+                if (e.target.id === 'cartDrawerOverlay') closeCart();
+            });
+        });
 
-            if (items.length === 0) {
-                grid.innerHTML = '';
-                noResults.classList.remove('hidden');
-                return;
-            }
-
-            noResults.classList.add('hidden');
-            grid.innerHTML = items.map(p => `
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col group">
-                    <div class="relative overflow-hidden bg-slate-100 aspect-square">
-                        ${p.badge ? `<span class="absolute top-3 left-3 z-10 text-[10px] font-extrabold uppercase tracking-wider bg-blue-600 text-white px-2.5 py-1 rounded-full shadow-md">${p.badge}</span>` : ''}
-                        <img src="${p.imagen}" alt="${p.nombre}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <button onclick="openQuickView(${p.id})" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-md p-2 rounded-xl text-slate-700 hover:text-blue-600 shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
-                            <i data-lucide="eye" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-
-                    <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
-                        <div class="space-y-1.5">
-                            <div class="flex items-center gap-1 text-amber-400 text-xs font-semibold">
-                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-                                <span>${p.rating}</span>
-                                <span class="text-slate-400 font-normal ml-1">(${Math.floor(p.rating * 18)})</span>
-                            </div>
-                            <h3 class="font-bold text-slate-800 text-sm leading-snug line-clamp-2 hover:text-blue-600 transition-colors">${p.nombre}</h3>
-                            <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">${p.descripcion}</p>
-                        </div>
-
-                        <div class="pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
-                            <div>
-                                <span class="text-xs text-slate-400 line-through block leading-none">$${p.precioAnterior.toLocaleString('es-MX')}</span>
-                                <span class="text-lg font-extrabold text-slate-900">$${p.precio.toLocaleString('es-MX')} <span class="text-[10px] font-normal text-slate-500">MXN</span></span>
-                            </div>
-                            <button onclick="addToCart(${p.id})" class="px-3.5 py-2.5 bg-slate-900 hover:bg-blue-600 text-white rounded-xl font-medium text-xs shadow-sm transition-all flex items-center gap-1.5 active:scale-95">
-                                <i data-lucide="plus" class="w-4 h-4"></i>
-                                Agregar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-
-            lucide.createIcons();
-        }
-
-        // Filtros y Búsqueda
+        // Filtrado y Renderizado
         function setCategory(cat) {
             currentCategory = cat;
             document.querySelectorAll('.cat-btn').forEach(btn => {
@@ -563,13 +512,13 @@
         }
 
         function filterAndSortProducts() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             const sortValue = document.getElementById('sortSelect').value;
 
             let filtered = productos.filter(p => {
-                const matchCat = currentCategory === 'all' || p.categoria === currentCategory;
-                const matchQuery = p.nombre.toLowerCase().includes(query) || p.descripcion.toLowerCase().includes(query);
-                return matchCat && matchQuery;
+                const matchesCategory = currentCategory === 'all' || p.categoria === currentCategory;
+                const matchesSearch = p.nombre.toLowerCase().includes(searchTerm) || p.descripcion.toLowerCase().includes(searchTerm);
+                return matchesCategory && matchesSearch;
             });
 
             if (sortValue === 'price-low') {
@@ -583,6 +532,59 @@
             renderProducts(filtered);
         }
 
+        function renderProducts(items = productos) {
+            const grid = document.getElementById('productGrid');
+            const noResults = document.getElementById('noResults');
+
+            if (items.length === 0) {
+                grid.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            grid.innerHTML = items.map(p => `
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative overflow-hidden aspect-square bg-slate-100">
+                        <img src="${p.imagen}" alt="${p.nombre}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        ${p.badge ? `<span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">${p.badge}</span>` : ''}
+                        
+                        <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                            <button onclick="openQuickView(${p.id})" class="p-3 bg-white/90 text-slate-800 rounded-full hover:bg-white transition-colors shadow-lg">
+                                <i data-lucide="eye" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs text-slate-400">
+                                <span class="capitalize font-medium text-blue-600">${p.categoria}</span>
+                                <div class="flex items-center gap-1 text-amber-400">
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                                    <span class="font-bold text-slate-700">${p.rating}</span>
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-sm line-clamp-2 leading-snug group-hover:text-blue-600 transition-colors">${p.nombre}</h3>
+                        </div>
+
+                        <div class="space-y-3 pt-2 border-t border-slate-100">
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-xl font-extrabold text-slate-900">$${p.precio.toLocaleString()} MXN</span>
+                                ${p.precioAnterior ? `<span class="text-xs text-slate-400 line-through">$${p.precioAnterior.toLocaleString()}</span>` : ''}
+                            </div>
+
+                            <button onclick="addToCart(${p.id})" class="w-full py-2.5 bg-slate-900 hover:bg-blue-600 text-white font-semibold rounded-xl text-xs transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                <i data-lucide="shopping-cart" class="w-4 h-4"></i> Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
         // Lógica del Carrito
         function addToCart(productId) {
             const product = productos.find(p => p.id === productId);
@@ -594,8 +596,9 @@
                 cart.push({ ...product, quantity: 1 });
             }
 
+            saveCart();
             updateCartUI();
-            showToast(`"${product.nombre}" agregado al carrito`);
+            showToast(`¡${product.nombre} añadido al carrito!`);
         }
 
         function updateQuantity(productId, delta) {
@@ -606,110 +609,95 @@
                     cart = cart.filter(i => i.id !== productId);
                 }
             }
+            saveCart();
             updateCartUI();
         }
 
         function removeFromCart(productId) {
             cart = cart.filter(i => i.id !== productId);
+            saveCart();
             updateCartUI();
         }
 
+        function saveCart() {
+            localStorage.setItem('Codemx_cart', JSON.stringify(cart));
+        }
+
         function updateCartUI() {
-            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const subtotal = cart.reduce((sum, item) => sum + (item.precio * item.quantity), 0);
-
-            document.getElementById('cartBadge').textContent = totalCount;
-            document.getElementById('cartSubtotal').textContent = `$${subtotal.toLocaleString('es-MX')} MXN`;
-            document.getElementById('cartTotal').textContent = `$${subtotal.toLocaleString('es-MX')} MXN`;
-
+            const badge = document.getElementById('cartBadge');
             const container = document.getElementById('cartItemsContainer');
+            const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+            badge.innerText = totalCount;
 
             if (cart.length === 0) {
                 container.innerHTML = `
                     <div class="text-center py-12 space-y-3">
                         <i data-lucide="shopping-bag" class="w-12 h-12 text-slate-300 mx-auto"></i>
-                        <p class="text-sm font-medium text-slate-500">Tu carrito está vacío</p>
+                        <p class="text-sm font-semibold text-slate-500">Tu carrito está vacío</p>
                     </div>
                 `;
             } else {
                 container.innerHTML = cart.map(item => `
                     <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-200">
-                        <img src="${item.imagen}" alt="${item.nombre}" class="w-16 h-16 object-cover rounded-xl border border-slate-200">
+                        <img src="${item.imagen}" class="w-16 h-16 object-cover rounded-xl border border-slate-200">
                         <div class="flex-1 min-w-0">
                             <h4 class="text-xs font-bold text-slate-800 truncate">${item.nombre}</h4>
-                            <p class="text-xs font-extrabold text-blue-600 mt-0.5">$${item.precio.toLocaleString('es-MX')} MXN</p>
+                            <span class="text-xs font-bold text-blue-600 block mt-0.5">$${(item.precio * item.quantity).toLocaleString()} MXN</span>
+                            
                             <div class="flex items-center gap-2 mt-2">
-                                <button onclick="updateQuantity(${item.id}, -1)" class="w-6 h-6 bg-white border border-slate-300 rounded-md text-xs font-bold flex items-center justify-center hover:bg-slate-100">-</button>
+                                <button onclick="updateQuantity(${item.id}, -1)" class="w-6 h-6 rounded-lg bg-white border border-slate-300 text-slate-600 flex items-center justify-center text-xs font-bold hover:bg-slate-100">-</button>
                                 <span class="text-xs font-semibold text-slate-700">${item.quantity}</span>
-                                <button onclick="updateQuantity(${item.id}, 1)" class="w-6 h-6 bg-white border border-slate-300 rounded-md text-xs font-bold flex items-center justify-center hover:bg-slate-100">+</button>
+                                <button onclick="updateQuantity(${item.id}, 1)" class="w-6 h-6 rounded-lg bg-white border border-slate-300 text-slate-600 flex items-center justify-center text-xs font-bold hover:bg-slate-100">+</button>
                             </div>
                         </div>
-                        <button onclick="removeFromCart(${item.id})" class="p-1.5 text-slate-400 hover:text-red-500 rounded-lg hover:bg-red-50 transition-colors">
+                        <button onclick="removeFromCart(${item.id})" class="text-slate-400 hover:text-red-500 p-1">
                             <i data-lucide="trash-2" class="w-4 h-4"></i>
                         </button>
                     </div>
                 `).join('');
             }
 
+            const subtotal = cart.reduce((acc, i) => acc + (i.precio * i.quantity), 0);
+            document.getElementById('cartSubtotal').innerText = `$${subtotal.toLocaleString()} MXN`;
+            document.getElementById('cartTotal').innerText = `$${subtotal.toLocaleString()} MXN`;
+
             lucide.createIcons();
         }
 
         function openCart() {
-            const overlay = document.getElementById('cartDrawerOverlay');
-            const drawer = document.getElementById('cartDrawer');
-            overlay.classList.remove('hidden');
-            setTimeout(() => drawer.classList.remove('translate-x-full'), 10);
+            document.getElementById('cartDrawerOverlay').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('cartDrawer').classList.remove('translate-x-full');
+            }, 10);
         }
 
         function closeCart() {
-            const drawer = document.getElementById('cartDrawer');
-            drawer.classList.add('translate-x-full');
-            setTimeout(() => document.getElementById('cartDrawerOverlay').classList.add('hidden'), 300);
+            document.getElementById('cartDrawer').classList.add('translate-x-full');
+            setTimeout(() => {
+                document.getElementById('cartDrawerOverlay').classList.add('hidden');
+            }, 300);
         }
 
-        // WhatsApp Checkout
-        function checkoutWhatsApp() {
-            if (cart.length === 0) {
-                showToast("Tu carrito está vacío. Agrega productos para continuar.");
-                return;
-            }
-
-            let mensaje = "¡Hola Codemx! 🤖 Quisiera realizar la compra de los siguientes productos:\n\n";
-            let total = 0;
-
-            cart.forEach((item, index) => {
-                const sub = item.precio * item.quantity;
-                total += sub;
-                mensaje += `${index + 1}. *${item.nombre}*\n   - Cantidad: ${item.quantity}\n   - Precio: $${sub.toLocaleString('es-MX')} MXN\n\n`;
-            });
-
-            mensaje += `*Total a pagar: $${total.toLocaleString('es-MX')} MXN*\n`;
-            mensaje += `*Envío:* Gratis 🚛\n\nQuedo a la espera de sus datos bancarios para realizar el pago.`;
-
-            const url = `https://wa.me/${TELEFONO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
-            window.open(url, '_blank');
-        }
-
-        // Modal Quick View
-        function openQuickView(id) {
-            const p = productos.find(prod => prod.id === id);
+        // Quick View Modal
+        function openQuickView(productId) {
+            const p = productos.find(item => item.id === productId);
             const content = document.getElementById('quickViewContent');
 
             content.innerHTML = `
                 <div class="aspect-square bg-slate-100 rounded-2xl overflow-hidden border border-slate-200">
-                    <img src="${p.imagen}" alt="${p.nombre}" class="w-full h-full object-cover">
+                    <img src="${p.imagen}" class="w-full h-full object-cover">
                 </div>
                 <div class="space-y-4">
-                    <span class="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full uppercase">${p.categoria}</span>
-                    <h2 class="text-2xl font-bold text-slate-900 leading-tight">${p.nombre}</h2>
+                    <span class="text-xs font-bold text-blue-600 uppercase tracking-wide">${p.categoria}</span>
+                    <h2 class="text-xl font-bold text-slate-900">${p.nombre}</h2>
                     <p class="text-sm text-slate-600 leading-relaxed">${p.descripcion}</p>
-                    <div class="flex items-center gap-3">
-                        <span class="text-2xl font-extrabold text-slate-900">$${p.precio.toLocaleString('es-MX')} MXN</span>
-                        <span class="text-sm text-slate-400 line-through">$${p.precioAnterior.toLocaleString('es-MX')} MXN</span>
+                    <div class="flex items-baseline gap-3 pt-2">
+                        <span class="text-2xl font-extrabold text-slate-900">$${p.precio.toLocaleString()} MXN</span>
+                        ${p.precioAnterior ? `<span class="text-sm text-slate-400 line-through">$${p.precioAnterior.toLocaleString()}</span>` : ''}
                     </div>
-                    <button onclick="addToCart(${p.id}); closeQuickView();" class="w-full py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
-                        <i data-lucide="shopping-cart" class="w-5 h-5"></i>
-                        Agregar al Carrito
+                    <button onclick="addToCart(${p.id}); closeQuickView();" class="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="shopping-cart" class="w-5 h-5"></i> Añadir al Carrito
                     </button>
                 </div>
             `;
@@ -722,40 +710,68 @@
             document.getElementById('quickViewModal').classList.add('hidden');
         }
 
-        // Timer de Oferta
-        function initTimer() {
-            let h = 8, m = 42, s = 15;
-            setInterval(() => {
-                s--;
-                if (s < 0) { s = 59; m--; }
-                if (m < 0) { m = 59; h--; }
-                if (h < 0) { h = 23; m = 59; s = 59; }
+        // WhatsApp Checkout
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert("Tu carrito está vacío. Añade productos antes de finalizar el pedido.");
+                return;
+            }
 
-                document.getElementById('hours').textContent = String(h).padStart(2, '0');
-                document.getElementById('minutes').textContent = String(m).padStart(2, '0');
-                document.getElementById('seconds').textContent = String(s).padStart(2, '0');
-            }, 1000);
+            let mensaje = "Hola Codemx, me gustaría realizar el siguiente pedido de domótica:%0A%0A";
+            cart.forEach(i => {
+                mensaje += `• *${i.nombre}* (x${i.quantity}) - $${(i.precio * i.quantity).toLocaleString()} MXN%0A`;
+            });
+
+            const total = cart.reduce((acc, i) => acc + (i.precio * i.quantity), 0);
+            mensaje += `%0A*Total del Pedido:* $${total.toLocaleString()} MXN%0A*Envío:* GRATIS%0A%0AQuedo atento a las instrucciones de pago y envío.`;
+
+            window.open(`https://wa.me/${TELEFONO_WHATSAPP}?text=${mensaje}`, '_blank');
         }
 
-        // Toast Helper
-        function showToast(message) {
+        // Toast Notifications
+        function showToast(msg) {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
-            toast.className = 'bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl text-xs font-medium flex items-center gap-2 animate-bounce';
-            toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> ${message}`;
+            toast.className = "bg-slate-900 text-white text-xs font-medium px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 transition-all transform translate-y-2 opacity-0";
+            toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> ${msg}`;
+            
             container.appendChild(toast);
             lucide.createIcons();
 
             setTimeout(() => {
-                toast.remove();
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+                setTimeout(() => toast.remove(), 300);
             }, 3000);
         }
 
-        // Newsletter Handler
+        // Newsletter
         function subscribeNewsletter(e) {
             e.preventDefault();
-            showToast("¡Gracias por suscribirte! Revisa tu correo pronto.");
+            showToast("¡Gracias por suscribirte! Código CodeO10 enviado.");
             e.target.reset();
+        }
+
+        // Temporizador de Oferta
+        function startCountdown() {
+            let h = 8, m = 42, s = 15;
+            setInterval(() => {
+                if (s > 0) s--;
+                else {
+                    s = 59;
+                    if (m > 0) m--;
+                    else {
+                        m = 59;
+                        if (h > 0) h--;
+                    }
+                }
+                document.getElementById('hours').innerText = String(h).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+                document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+            }, 1000);
         }
     </script>
 </body>
