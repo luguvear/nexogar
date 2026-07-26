@@ -82,7 +82,7 @@
                         Transforma tu hogar con tecnología y estilo.
                     </h1>
                     <p class="text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
-                        Descubre nuestra selección exclusiva de productos diseñados para hacer tu vida cotidiana más cómoda, funcional y elegante.
+                        Descubre más de 50 productos seleccionados exclusivamente para hacer tu vida cotidiana más cómoda, funcional y elegante.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
                         <a href="#catalogo" class="w-full sm:w-auto px-8 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50 transition-all text-center">
@@ -123,7 +123,7 @@
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 
                 <div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 hide-scrollbar" id="categoryButtons">
-                    <button onclick="filterCategory('todos')" class="category-btn active px-4 py-2 bg-brand-600 text-white font-medium text-sm rounded-xl whitespace-nowrap transition-all shadow-sm">Todos</button>
+                    <button onclick="filterCategory('todos')" class="category-btn active px-4 py-2 bg-brand-600 text-white font-medium text-sm rounded-xl whitespace-nowrap transition-all shadow-sm">Todos (50)</button>
                     <button onclick="filterCategory('hogar')" class="category-btn px-4 py-2 bg-gray-100 text-gray-600 hover:bg-gray-200 font-medium text-sm rounded-xl whitespace-nowrap transition-all">Hogar</button>
                     <button onclick="filterCategory('tecnologia')" class="category-btn px-4 py-2 bg-gray-100 text-gray-600 hover:bg-gray-200 font-medium text-sm rounded-xl whitespace-nowrap transition-all">Tecnología</button>
                     <button onclick="filterCategory('decoracion')" class="category-btn px-4 py-2 bg-gray-100 text-gray-600 hover:bg-gray-200 font-medium text-sm rounded-xl whitespace-nowrap transition-all">Decoración</button>
@@ -246,7 +246,7 @@
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">"Excelente atención y los productos llegaron súper rápido a mi domicilio. La calidad supera mis expectativas."</p>
+                    <p class="text-sm text-gray-600 mb-4">"Excelente atención y los productos llegaron súper rápido a mi domicilio. La variedad del catálogo es genial."</p>
                     <div class="font-semibold text-sm text-gray-900">María Fernández</div>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm text-left border border-gray-100">
@@ -257,7 +257,7 @@
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">"Comprar por WhatsApp fue rapidísimo. El proceso fue transparente y sin complicaciones."</p>
+                    <p class="text-sm text-gray-600 mb-4">"Comprar por WhatsApp fue rapidísimo. El catálogo actualizado facilita mucho elegir el producto ideal."</p>
                     <div class="font-semibold text-sm text-gray-900">Carlos Gómez</div>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm text-left border border-gray-100">
@@ -306,101 +306,72 @@
         // ==========================================
         // CONFIGURACIÓN CENTRALIZADA
         // ==========================================
-        // Reemplaza este número por tu número real con clave de país (ej. 52 para México + 10 dígitos)
+        // Cambia este número por tu número de WhatsApp real (incluyendo clave de país)
         const TELEFONO_WHATSAPP = "526692558761";
 
         // ==========================================
-        // BASE DE DATOS DE PRODUCTOS Y CATEGORÍAS
+        // BASE DE DATOS DE 50 PRODUCTOS Y CATEGORÍAS
         // ==========================================
         const productos = [
-            {
-                id: 1,
-                nombre: "Lámpara Inteligente Nexogar Pro",
-                categoria: "iluminacion",
-                precio: 499,
-                precioAnterior: 899,
-                rating: 5,
-                badge: "Oferta",
-                imagen: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80",
-                descripcion: "Lámpara LED regulable con control por app y compatibilidad con asistentes de voz."
-            },
-            {
-                id: 2,
-                nombre: "Difusor de Aromas Ultrasonico",
-                categoria: "hogar",
-                precio: 349,
-                precioAnterior: 499,
-                rating: 4.8,
-                badge: "Más Vendido",
-                imagen: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80",
-                descripcion: "Mantén tu hogar fresco y aromatizado con iluminación LED RGB tenue."
-            },
-            {
-                id: 3,
-                nombre: "Soporte Ergonómico para Laptop",
-                categoria: "tecnologia",
-                precio: 299,
-                precioAnterior: 399,
-                rating: 4.7,
-                badge: "Nuevo",
-                imagen: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80",
-                descripcion: "Aluminio de alta calidad, plegable y ajustable en 6 ángulos de elevación."
-            },
-            {
-                id: 4,
-                nombre: "Cafetera de Goteo Programable",
-                categoria: "cocina",
-                precio: 899,
-                precioAnterior: 1199,
-                rating: 4.9,
-                badge: "Oferta",
-                imagen: "https://images.unsplash.com/photo-1517668808822-9ed02810a0e9?auto=format&fit=crop&w=600&q=80",
-                descripcion: "Prepara café caliente de forma automática cada mañana con temporizador digital."
-            },
-            {
-                id: 5,
-                nombre: "Cuadro Decorativo Minimalista",
-                categoria: "decoracion",
-                precio: 249,
-                precioAnterior: 350,
-                rating: 4.6,
-                badge: "Nuevo",
-                imagen: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80",
-                descripcion: "Marco de madera de pino con lienzo impreso en alta definición."
-            },
-            {
-                id: 6,
-                nombre: "Báscula Digital de Cocina",
-                categoria: "cocina",
-                precio: 199,
-                precioAnterior: 299,
-                rating: 4.5,
-                badge: "Básico",
-                imagen: "https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?auto=format&fit=crop&w=600&q=80",
-                descripcion: "Sensor de alta precisión para medir alimentos en gramos y onzas."
-            },
-            {
-                id: 7,
-                nombre: "Humidificador de Ambiente Portátil",
-                categoria: "hogar",
-                precio: 279,
-                precioAnterior: 399,
-                rating: 4.7,
-                badge: "Popular",
-                imagen: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=600&q=80",
-                descripcion: "Silencioso y compacto, ideal para recámaras u oficinas."
-            },
-            {
-                id: 8,
-                nombre: "Tira LED RGB Inteligente 5m",
-                categoria: "iluminacion",
-                precio: 320,
-                precioAnterior: 450,
-                rating: 4.8,
-                badge: "Oferta",
-                imagen: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80",
-                descripcion: "Sincronizable con música y control remoto para crear la mejor atmósfera."
-            }
+            // ILUMINACIÓN (10 Productos)
+            { id: 1, nombre: "Lámpara Inteligente Nexogar Pro", categoria: "iluminacion", precio: 499, precioAnterior: 899, rating: 5, badge: "Oferta", imagen: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80", descripcion: "Lámpara LED regulable con control por app y compatibilidad con asistentes de voz." },
+            { id: 2, nombre: "Tira LED RGB Inteligente 5m", categoria: "iluminacion", precio: 320, precioAnterior: 450, rating: 4.8, badge: "Popular", imagen: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80", descripcion: "Sincronizable con música y control remoto para crear la mejor atmósfera." },
+            { id: 3, nombre: "Foco Inteligente WiFi E27 Multi-Color", categoria: "iluminacion", precio: 180, precioAnterior: 250, rating: 4.7, badge: "Nuevo", imagen: "https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=600&q=80", descripcion: "Foco inteligente de bajo consumo programable con temporizador." },
+            { id: 4, nombre: "Lámpara de Escritorio LED Táctil", categoria: "iluminacion", precio: 399, precioAnterior: 520, rating: 4.9, badge: "Más Vendido", imagen: "https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?auto=format&fit=crop&w=600&q=80", descripcion: "Brazo flexible, 3 modos de luz y puerto de carga USB incorporado." },
+            { id: 5, nombre: "Lámpara Colgante Estilo Industrial", categoria: "iluminacion", precio: 650, precioAnterior: 850, rating: 4.6, badge: "Destacado", imagen: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=600&q=80", descripcion: "Diseño vintage en metal negro ideal para comedores y barras de cocina." },
+            { id: 6, nombre: "Proyector de Galaxia y Estrellas LED", categoria: "iluminacion", precio: 549, precioAnterior: 799, rating: 4.8, badge: "Oferta", imagen: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80", descripcion: "Convierte cualquier habitación en un planetario con altavoz Bluetooth incorporado." },
+            { id: 7, nombre: "Lámpara Nocturna con Sensor de Movimiento", categoria: "iluminacion", precio: 150, precioAnterior: 220, rating: 4.5, badge: "Básico", imagen: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=600&q=80", descripcion: "Luz cálida recargable mediante USB para pasillos y escaleras." },
+            { id: 8, nombre: "Lámpara de Pie Minimalista Nordic", categoria: "iluminacion", precio: 890, precioAnterior: 1200, rating: 4.9, badge: "Nuevo", imagen: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80", descripcion: "Estructura elegante de madera y base firme para sala de estar." },
+            { id: 9, nombre: "Guirnalda de Luces Solar para Exterior", categoria: "iluminacion", precio: 299, precioAnterior: 400, rating: 4.7, badge: "Oferta", imagen: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80", descripcion: "Resistente al agua (IP65) ideal para jardines, terrazas y eventos." },
+            { id: 10, nombre: "Lámpara de Luna 3D Recargable", categoria: "iluminacion", precio: 280, precioAnterior: 390, rating: 4.8, badge: "Regalo Ideal", imagen: "https://images.unsplash.com/photo-1532009877282-3340270e0529?auto=format&fit=crop&w=600&q=80", descripcion: "Impresión 3D realista con 16 colores cambiantes y soporte de madera." },
+
+            // HOGAR (10 Productos)
+            { id: 11, nombre: "Difusor de Aromas Ultrasónico", categoria: "hogar", precio: 349, precioAnterior: 499, rating: 4.8, badge: "Más Vendido", imagen: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80", descripcion: "Mantén tu hogar fresco y aromatizado con iluminación LED RGB tenue." },
+            { id: 12, nombre: "Humidificador de Ambiente Portátil", categoria: "hogar", precio: 279, precioAnterior: 399, rating: 4.7, badge: "Popular", imagen: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=600&q=80", descripcion: "Silencioso y compacto, ideal para recámaras u oficinas." },
+            { id: 13, nombre: "Aspiradora Robot Inteligente Slim", categoria: "hogar", precio: 2499, precioAnterior: 3499, rating: 4.9, badge: "Pro", imagen: "https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?auto=format&fit=crop&w=600&q=80", descripcion: "Barre y trapea automáticamente con sensores anticaída y recarga autónoma." },
+            { id: 14, nombre: "Purificador de Aire HEPA H13", categoria: "hogar", precio: 1290, precioAnterior: 1690, rating: 4.8, badge: "Salud", imagen: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80", descripcion: "Elimina el 99.97% de alérgenos, polvo y malos olores en espacios cerrados." },
+            { id: 15, nombre: "Cerradura Digital Biométrica inteligente", categoria: "hogar", precio: 1899, precioAnterior: 2500, rating: 4.9, badge: "Seguridad", imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80", descripcion: "Apertura por huella dactilar, clave numérica, tarjeta RFID y App móvil." },
+            { id: 16, nombre: "Cojín Ergonómico Viscoelástico", categoria: "hogar", precio: 320, precioAnterior: 450, rating: 4.6, badge: "Confort", imagen: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80", descripcion: "Espuma con memoria para aliviar la presión en la zona lumbar y coxis." },
+            { id: 17, nombre: "Organizador Modular de Armario", categoria: "hogar", precio: 240, precioAnterior: 320, rating: 4.5, badge: "Nuevo", imagen: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=600&q=80", descripcion: "Cajas plegables de tela transpirable para ropa y accesorios." },
+            { id: 18, nombre: "Ventilador Silencioso Sin Aspas", categoria: "hogar", precio: 1150, precioAnterior: 1500, rating: 4.7, badge: "Oferta", imagen: "https://images.unsplash.com/photo-1618941709602-92809f67d264?auto=format&fit=crop&w=600&q=80", descripcion: "Flujo de aire constante y seguro para niños y mascotas." },
+            { id: 19, nombre: "Cesto para Ropa Plegable de Bambú", categoria: "hogar", precio: 380, precioAnterior: 490, rating: 4.8, badge: "Ecológico", imagen: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&w=600&q=80", descripcion: "Estructura elegante de bambú natural con bolsa de tela lavable interna." },
+            { id: 20, nombre: "Manta Pesada para Alivio de Estrés", categoria: "hogar", precio: 890, precioAnterior: 1200, rating: 4.9, badge: "Descanso", imagen: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80", descripcion: "Estimulación de presión profunda para mejorar la calidad del sueño." },
+
+            // TECNOLOGÍA (10 Productos)
+            { id: 21, nombre: "Soporte Ergonómico para Laptop", categoria: "tecnologia", precio: 299, precioAnterior: 399, rating: 4.7, badge: "Nuevo", imagen: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80", descripcion: "Aluminio de alta calidad, plegable y ajustable en 6 ángulos de elevación." },
+            { id: 22, nombre: "Cargador Inalámbrico MagSafe 3 en 1", categoria: "tecnologia", precio: 450, precioAnterior: 650, rating: 4.8, badge: "Popular", imagen: "https://images.unsplash.com/photo-1622445268465-842276858316?auto=format&fit=crop&w=600&q=80", descripcion: "Carga simultáneamente Smartphone, Smartwatch y Audífonos inalámbricos." },
+            { id: 23, nombre: "Audífonos Inalámbricos Noise Cancelling", categoria: "tecnologia", precio: 890, precioAnterior: 1300, rating: 4.9, badge: "Top Calidad", imagen: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80", descripcion: "Cancelación activa de ruido, 30 horas de batería y sonido de alta fidelidad." },
+            { id: 24, nombre: "Bocina Bluetooth Impermeable IPX7", categoria: "tecnologia", precio: 520, precioAnterior: 750, rating: 4.8, badge: "Oferta", imagen: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80", descripcion: "Bajos potentes y batería de larga duración para exteriores y albercas." },
+            { id: 25, nombre: "Cámara de Seguridad WiFi 360° Interior", categoria: "tecnologia", precio: 499, precioAnterior: 699, rating: 4.7, badge: "Seguridad", imagen: "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?auto=format&fit=crop&w=600&q=80", descripcion: "Visión nocturna, audio bidireccional y alertas inmediatas al celular." },
+            { id: 26, nombre: "Hub USB-C 7 en 1 de Aluminio", categoria: "tecnologia", precio: 380, precioAnterior: 500, rating: 4.6, badge: "Accesorios", imagen: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80", descripcion: "Puertos HDMI 4K, lectores SD/MicroSD y cargas rápidas Power Delivery." },
+            { id: 27, nombre: "Teclado Mecánico Inalámbrico RGB", categoria: "tecnologia", precio: 790, precioAnterior: 1100, rating: 4.9, badge: "Gamer / Office", imagen: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80", descripcion: "Switches suaves, diseño compacto al 65% y conexión multidispositivo." },
+            { id: 28, nombre: "Mouse Ergonómico Vertical Inalámbrico", categoria: "tecnologia", precio: 310, precioAnterior: 450, rating: 4.7, badge: "Salud", imagen: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80", descripcion: "Reduce la tensión muscular en muñeca y antebrazo durante largas jornadas." },
+            { id: 29, nombre: "Barra de Luz LED para Monitor USB", categoria: "tecnologia", precio: 420, precioAnterior: 580, rating: 4.8, badge: "Popular", imagen: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=600&q=80", descripcion: "Evita el reflejo en la pantalla y reduce la fatiga visual nocturna." },
+            { id: 30, nombre: "Enchufe Inteligente WiFi con Monitor de Energía", categoria: "tecnologia", precio: 199, precioAnterior: 299, rating: 4.6, badge: "Ahorro", imagen: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80", descripcion: "Controla cualquier electrodoméstico desde tu smartphone o voz." },
+
+            // DECORACIÓN (10 Productos)
+            { id: 31, nombre: "Cuadro Decorativo Minimalista", categoria: "decoracion", precio: 249, precioAnterior: 350, rating: 4.6, badge: "Nuevo", imagen: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80", descripcion: "Marco de madera de pino con lienzo impreso en alta definición." },
+            { id: 32, nombre: "Espejo de Pared Sol Dorado", categoria: "decoracion", precio: 590, precioAnterior: 800, rating: 4.8, badge: "Elegante", imagen: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80", descripcion: "Pieza central artesanal con acabado metálico brillante." },
+            { id: 33, nombre: "Juego de 3 Macetas Cerámicas Nórdicas", categoria: "decoracion", precio: 340, precioAnterior: 450, rating: 4.7, badge: "Más Vendido", imagen: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80", descripcion: "Diseño elegante con base de bambú ideal para suculentas y plantas pequeñas." },
+            { id: 34, nombre: "Reloj de Pared Digital 3D LED", categoria: "decoracion", precio: 280, precioAnterior: 390, rating: 4.6, badge: "Moderno", imagen: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=600&q=80", descripcion: "Brillo regulable, alarma y sensor automático de luz nocturna." },
+            { id: 35, nombre: "Alfombra Suave Fluffy para Sala", categoria: "decoracion", precio: 620, precioAnterior: 890, rating: 4.9, badge: "Oferta", imagen: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=600&q=80", descripcion: "Textura ultra afelpada con base antideslizante de alta durabilidad." },
+            { id: 36, nombre: "Jarrón de Vidrio Ámbar Estilo Boho", categoria: "decoracion", precio: 210, precioAnterior: 290, rating: 4.5, badge: "Tendencia", imagen: "https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=600&q=80", descripcion: "Ideal para arreglos de flores secas, pampas o follaje natural." },
+            { id: 37, nombre: "Escultura Abstracta de Cerámica", categoria: "decoracion", precio: 390, precioAnterior: 520, rating: 4.8, badge: "Arte", imagen: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80", descripcion: "Detalle refinado para estanterías, escritorios y mesas de centro." },
+            { id: 38, nombre: "Velas Aromáticas de Soya Artesanales", categoria: "decoracion", precio: 180, precioAnterior: 240, rating: 4.7, badge: "Eco Friendly", imagen: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=600&q=80", descripcion: "Aromas de lavanda y vainilla con mecha de madera natural." },
+            { id: 39, nombre: "Estantes Flotantes de Madera Rústica (Set de 3)", categoria: "decoracion", precio: 430, precioAnterior: 590, rating: 4.8, badge: "Práctico", imagen: "https://images.unsplash.com/photo-1532323544230-7191fd51bc1b?auto=format&fit=crop&w=600&q=80", descripcion: "Soportes invisibles de acero para optimizar el espacio vertical." },
+            { id: 40, nombre: "Cojines Decorativos Abstractos (Set de 2)", categoria: "decoracion", precio: 299, precioAnterior: 420, rating: 4.6, badge: "Novedad", imagen: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80", descripcion: "Fundas de lino lavables con patrones geométricos contemporáneos." },
+
+            // COCINA (10 Productos)
+            { id: 41, nombre: "Cafetera de Goteo Programable", categoria: "cocina", precio: 899, precioAnterior: 1199, rating: 4.9, badge: "Oferta", imagen: "https://images.unsplash.com/photo-1517668808822-9ed02810a0e9?auto=format&fit=crop&w=600&q=80", descripcion: "Prepara café caliente de forma automática cada mañana con temporizador digital." },
+            { id: 42, nombre: "Báscula Digital de Cocina", categoria: "cocina", precio: 199, precioAnterior: 299, rating: 4.5, badge: "Básico", imagen: "https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?auto=format&fit=crop&w=600&q=80", descripcion: "Sensor de alta precisión para medir alimentos en gramos y onzas." },
+            { id: 43, nombre: "Freidora de Aire Digital 4.5L", categoria: "cocina", precio: 1490, precioAnterior: 2100, rating: 4.9, badge: "Top Ventas", imagen: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80", descripcion: "Cocina de forma saludable con 85% menos aceite e interfaz táctil." },
+            { id: 44, nombre: "Procesador de Alimentos Compacto", categoria: "cocina", precio: 480, precioAnterior: 650, rating: 4.7, badge: "Popular", imagen: "https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=600&q=80", descripcion: "Cuchillas de acero inoxidable para picar, triturar y mezclar rápidamente." },
+            { id: 45, nombre: "Hervidor Eléctrico de Vidrio con Luz LED", categoria: "cocina", precio: 390, precioAnterior: 520, rating: 4.8, badge: "Rápido", imagen: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f6?auto=format&fit=crop&w=600&q=80", descripcion: "Hierve agua en menos de 5 minutos con apagado automático de seguridad." },
+            { id: 46, nombre: "Set de Cuchillos de Cocina Pro (6 piezas)", categoria: "cocina", precio: 590, precioAnterior: 850, rating: 4.9, badge: "Chef", imagen: "https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=600&q=80", descripcion: "Acero de alto carbono con recubrimiento antiadherente y bloque de soporte." },
+            { id: 47, nombre: "Dispensador Automático de Agua Eléctrico", categoria: "cocina", precio: 160, precioAnterior: 230, rating: 4.6, badge: "Económico", imagen: "https://images.unsplash.com/photo-1548839140-29a749e1cf4e?auto=format&fit=crop&w=600&q=80", descripcion: "Bomba recargable por USB adaptable a cualquier garrafón estándar." },
+            { id: 48, nombre: "Espumador de Leche Eléctrico Manual", categoria: "cocina", precio: 120, precioAnterior: 180, rating: 4.7, badge: "Accesorios", imagen: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80", descripcion: "Crea espuma cremosa para tu café cappuccino o latte en solo 15 segundos." },
+            { id: 49, nombre: "Sartén Antiadherente de Granito 28cm", categoria: "cocina", precio: 420, precioAnterior: 580, rating: 4.8, badge: "Duradero", imagen: "https://images.unsplash.com/photo-1584992236310-6edddc08acff?auto=format&fit=crop&w=600&q=80", descripcion: "Libre de PFOA con distribución uniforme de calor para todo tipo de estufas." },
+            { id: 50, nombre: "Organizador de Especias Giratorio 360°", categoria: "cocina", precio: 330, precioAnterior: 460, rating: 4.7, badge: "Organización", imagen: "https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=600&q=80", descripcion: "Incluye 12 frascos de vidrio con tapas dosificadoras dobles." }
         ];
 
         // Estado Global del Carrito (recuperado de localStorage)
